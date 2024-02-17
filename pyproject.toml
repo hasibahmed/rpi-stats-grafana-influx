@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "rpi-stats-grfana-influx"
+version = "0.1.0"
+description = "\"Grafana dashboard to display rpi status\""
+authors = ["Hasib Ahmed <hasib@hasib-ahmed.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+psutil = "^5.9.8"
+influxdb = "^5.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
