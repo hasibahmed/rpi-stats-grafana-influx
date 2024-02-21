@@ -18,9 +18,15 @@ time = datetime.datetime.utcnow()
 disk = psutil.disk_usage('/')
 mem = psutil.virtual_memory()
 load = psutil.getloadavg()
-cpu = psutil.cpu_percent(interval=1, percpu=True)
-# temp = psutil.sensors_temperatures()
 
+
+cpu = psutil.cpu_percent(interval=1, percpu=True)
+#cpu = psutil.cpu_times()
+temp = psutil.sensors_temperatures()
+
+
+#
+connections = psutil.net_io_counters()
 # format the data as a single measurement for influx
 body = [
     {
@@ -37,8 +43,9 @@ body = [
             "disk_used": disk.used,
             "mem_percent": mem.percent,
             "mem_free": mem.free,
-            "mem_used": mem.used
-            # "temp": temp
+            "mem_used": mem.used,
+            "temp": temp['cpu_thermal'][0].current,
+	    "connections": connections
         }
     }
 ]
