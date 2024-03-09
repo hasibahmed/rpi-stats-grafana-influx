@@ -100,3 +100,4 @@ user admin
 ---- -----
 grafana true
 ```
+* influx db config: https://andreea-sonda31.medium.com/monitor-raspberry-pi-resources-and-parameters-with-grafana-board-part-1-ab0567303e8
